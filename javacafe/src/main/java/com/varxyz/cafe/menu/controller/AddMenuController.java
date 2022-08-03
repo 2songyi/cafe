@@ -51,7 +51,8 @@ public class AddMenuController {
 		// 얼마나 자주 새로운 메뉴가 추가되고 , 카테고리가 바뀌는지
 		// 이미지 받아오기
 		
-		String path="C:/Users/Administrator/cafe/src/main/webapp/menu_img";
+//		String path="/menu_img";
+		String path="C:/Users/Administrator/git/cafe/javacafe/src/main/webapp/menu_img";
 		int sizeLimit = 100 * 1024 * 1024;
 		String encode = "UTF-8";
 		System.out.println("directory : " + path);

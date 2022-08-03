@@ -30,6 +30,7 @@ public class MenuServiceImpl {
 		menuItem.setItemCode(generateCode());
 		menuItem.setItemName(itemName);
 		menuItem.setItemPrice(itemPrice);
+		menuItem.setItemImage(itemImage);
 		
 		dao.addMenu(menuItem);
 	}

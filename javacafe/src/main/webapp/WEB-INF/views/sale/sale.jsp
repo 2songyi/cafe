@@ -54,7 +54,7 @@
         <!-- content영역 -->
         <div id="content">
           <div class="content-info">
-            <h2 class="title">카테고리등록</h2>
+            <h2 class="title">매출관리</h2>
           </div>
           <div class="content-body">
             <div class="form-table">

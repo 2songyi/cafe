@@ -6,8 +6,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CartItem {
-	private String itemName;
+	private String mainCategory;
+	private String subCategory;
 	private String itemCode;
-	private String totalPrice;
-	private String count;
+	private String itemName;
+	private long itemprice;
+	private int count;
 }

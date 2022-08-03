@@ -11,5 +11,13 @@ public class MenuListCommand {
 	private String itemCode;
 	private String itemName;
 	private String itemPrice;
-	private String itemImage;
+	private String itemImgae;
+	
+	@Override
+	public String toString() {
+		return mainCategory + "," + subCategory + ","
+				+ itemCode + "," + itemName + "," + itemPrice + "," + itemImgae;
+	}
+	
+	
 }

@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+.wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  display: block;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* 왼쪽 카테고리 영역 */
+section#l-snb {
+  flex: 20%;
+  flex-shrink: 0;
+  flex-grow: 0;
+  box-sizing: border-box;
+  background: #a8b1bf;
+}
+
+#l-snb .logo {
+  height: 30%;
+  background: grey;
+}
+
+#l-snb .category {
+  background: #a8b1bf;
+}
+
+#l-snb .category li {
+  border-bottom: 1px solid #eaeef3;
+}
+
+#l-snb .category li a {
+  color: #555;
+  display: inline-block;
+  width: 100%;
+  line-height: 50px;
+  font-size: 18px;
+  box-sizing: border-box;
+  padding-left: 50px;
+}
+
+
+/* 오른쪽 장바구니 영역 */
+section#r-snb {
+  left: 0;
+  flex: 25%;
+  flex-shrink: 0;
+  flex-grow: 0;
+  box-sizing: border-box;
+  background: yellow;
+}
+
+#r-snb .cart {
+  height: 50%;
+  background: grey;
+}
+
+#r-snb .purchase {
+  /* height: 50%; */
+}
+
+/* 상단 서브 카테고리 */
+.sub-category {
+  height: 50px;
+  background: lightgreen;
+}
+
+/* 메뉴 아이템 영역 */
+#content {
+  width: 100%;
+  /* padding: 50px; */
+}
+
+.menu-item {
+  padding: 10px;
+  float: left;
+  height: 300px;
+  width: calc(33.33% - 60px);
+  border: 1px solid #eaeef3;
+}
+
+.menu-item .box {
+  /* background: lightgrey; */
+}
