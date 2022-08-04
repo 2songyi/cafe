@@ -22,6 +22,9 @@ input {
 }
 
 button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   padding: 0;
   margin: 0;
 }

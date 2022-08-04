@@ -52,47 +52,108 @@
           </nav>
         </section>
         <!-- content영역 -->
-        <div id="content">
-          <div class="content-info">
-            <h2 class="title">매출관리</h2>
-          </div>
-          <div class="content-body">
-            <div class="form-table">
-              
-
-                <table class="search-table">
-                  <tr>
-                    <th>대분류 카테고리</th>
-                    <td>
-                      	<form action="add_main_category" method="post">
-							<input type="text" name="mainCategory"/>
-							<button type="submit">등록</button>
-						</form>		
-                    </td>
-                  </tr>
-                  
-                  <tr>
-                    <th>소분류 카테고리</th>
-                    <td>
-                      <form action="add_sub_category" method="post">
-                      	<select name="mainCategory">
-							<c:forEach var="mainCategoryList" items="${mainCategoryList}">
-   	    					<option value="${fn:split(mainCategoryList, ',')[0]}">${fn:split(mainCategoryList, ',')[1]}</option>
+		<div id="content">
+			<div class="content-info">
+				<h2 class="title">매출관리</h2>
+			</div>
+			<div class="content-body">
+				<div class="form-table">
+					<table class="search-table">
+						<tr>
+							<th>전체보기</th>
+							<td>
+								<button class="findall" onclick="location.href='all_sale_list'">전체보기</button>
+							</td>
+						</tr>
+						<tr>
+							<th>카테고리</th>
+							<td>
+								<form class="searchform" action="find_CategorySale.do" method="post">
+									<select name="mainCategory" class="category">
+										<c:forEach var="mainCategory" items="${mainCategory}" >
+											<option value="${fn:split(mainCategory, ',')[1]}">${fn:split(mainCategory, ',')[1]}</option>										
+										</c:forEach>
+									</select>
+									<select name="subCategory" class="category">
+										<c:forEach var="subCategory" items="${subCategory}" >
+											<option value="${fn:split(subCategory, ',')[2]}">${fn:split(subCategory, ',')[2]}</option>									
+										</c:forEach>
+									</select>
+									<button type="submit" name="button" class="searchbtn">검색</button>
+								</form>
+							</td>
+						</tr>
+						<tr>
+							<th>날짜</th>
+							<td>
+								<form action="sale_list_date" method="post" id="saDateForm">
+									연도 :
+									<select name="year" form="saDateForm">
+										<option value="all">전체</option>
+										<c:forEach var="yearList" items="${yearList}" >
+											<option value="${yearList}">${yearList}</option>
+										</c:forEach>
+									</select>
+									월 :
+									<select name="month" form="saDateForm">
+										<option value="all">전체</option>
+										<c:forEach var="mondthList" items="${mondthList}" >
+											<option value="${mondthList}">${mondthList}</option>
+										</c:forEach>
+									</select>
+									일 :
+									<select name="day" form="saDateForm">
+										<<option value="all">전체</option>
+										<c:forEach var="dayList" items="${dayList}" >
+											<option value="${dayList}">${dayList}</option>
+										</c:forEach>
+									</select>
+									<button type="submit" name="button" class="searchbtn">검색</button>
+								</form>
+							</td>
+						</tr>
+						<tr>
+							<th>총 매출 금액</th>
+							<td>0원</td>
+						</tr>
+					</table>
+				</div>
+				<div class="content-table">
+					<table class="thead">
+						<thead>
+							<tr>
+								<th class="t0">No</th>
+								<th class="t1">메인카테고리</th>
+								<th class="t2">서브카테고리</th>
+								<th class="t3">상품코드</th>
+								<th class="t4">상품명</th>
+								<th class="t5">가격</th>
+								<th class="t6">수량</th>
+								<th class="t7">총 가격</th>
+								<th class="t8">날짜</th>
+							</tr>
+						</thead>
+					</table>
+					<div class="tbl-content">
+					 <table class="tbody">
+						<tbody>
+							<c:forEach var="salelist" items="${saleList}" varStatus="status">
+								<tr>
+									<td class="t0">${status.index + 1}</td>
+									<td class="t1">${fn:split(salelist, ',')[1]}</td>
+									<td class="t2">${fn:split(salelist, ',')[2]}</td>
+									<td class="t3">${fn:split(salelist, ',')[3]}</td>
+									<td class="t4">${fn:split(salelist, ',')[4]}</td>
+									<td class="t5">${fn:split(salelist, ',')[5]}</td>
+									<td class="t6">${fn:split(salelist, ',')[6]}</td>
+								</tr>
 							</c:forEach>
-						</select>
-						<input type="text" name="subCategory"/>
-                     	<button type="submit" name="submit">등록</button>
-                      </form>
-                    </td>
-                  </tr>
-                  
-                  
-                </table>
-          
-            </div>
-
-          </div>
-        </div>
+						</tbody>
+					 </table>
+					</div>
+				</div>
+			</div>
+		</div>
       </div>
 
     </main>
@@ -100,7 +161,7 @@
     <!-- footer -->
     <footer>
       <div class="inner">
-        <span class="copyright">Copyright &copy;TeamBravo</span>
+        <span class="copyright">Copyright &copy;LeeSongYi</span>
       </div>
     </footer>
 

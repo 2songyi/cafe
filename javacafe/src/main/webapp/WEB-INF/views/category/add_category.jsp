@@ -66,7 +66,7 @@
                     <td>
                       	<form action="add_main_category" method="post">
 							<input type="text" name="mainCategory"/>
-							<button type="submit">등록</button>
+							<button type="submit" class="submit">등록</button>
 						</form>		
                     </td>
                   </tr>
@@ -81,7 +81,7 @@
 							</c:forEach>
 						</select>
 						<input type="text" name="subCategory"/>
-                     	<button type="submit" name="submit">등록</button>
+                     	<button type="submit" name="submit" class="submit">등록</button>
                       </form>
                     </td>
                   </tr>

@@ -86,7 +86,7 @@ section#snb {
   flex-shrink: 0;
   flex-grow: 0;
   box-sizing: border-box;
-  background: #e1e7f0;
+  background: #555f80;
 }
 
 section#snb nav ul {
@@ -97,7 +97,7 @@ section#snb nav ul li {
   border-bottom: 1px solid #eaeef3;
 }
 section#snb nav ul li a {
-  color: #555;
+  color:#f1f1f1;
 
   display: inline-block;
   width: 100%;
@@ -149,19 +149,23 @@ button.findall {
   height: 28px;
 }
 
+select {
+	height: 28px;
+}
+
 select.category {
   width: 120px;
-  height: 28px;
 }
 
 select.findtype {
   width: 80px;
-  height: 28px;
 }
 
+input {
+	height: 24px;
+}
 input.searchinput {
   width: 200px;
-  height: 24px;
 }
 
 button.searchbtn {
@@ -169,6 +173,22 @@ button.searchbtn {
   height: 28px;
 
 }
+button {
+	border: 1px solid grey;
+}
+
+button.submit {
+	width: 50px;
+	height: 28px;
+}
+
+button.add-btn {
+	margin-top: 10px;
+	width : 100px;
+	height: 35px;
+	border: 1px solid grey;
+}
+
 
 /*검색결과 테이블*/
 .content-table {

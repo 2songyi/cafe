@@ -11,6 +11,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-"${category}"가 등록되었습니다.
+<script type="text/javascript">
+	
+	alert("${category} 이/가 등록되었습니다.");
+	document.location.href="add_category";
+
+</script>
 </body>
 </html>

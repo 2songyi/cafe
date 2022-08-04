@@ -72,7 +72,7 @@
 							<c:forEach var="subCategoryList" items="${subCategoryList}">
    	   						 	<option value="${fn:split(subCategoryList, ',')[2]}">${fn:split(subCategoryList, ',')[2]}</option>
 							</c:forEach>
-						</select><br>
+						</select>
                     </td>
                   </tr>
                   <tr>
@@ -94,8 +94,8 @@
                     </td>
                   </tr>
                 </table>
-                <button type="submit" name="button" class="findall">
-                  등록하기
+                <button type="submit" name="button" class="add-btn">
+                  메뉴 등록하기
                 </button>
               </form>
             </div>

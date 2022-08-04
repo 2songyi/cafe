@@ -73,6 +73,7 @@ public class AddMenuController {
 		
 		// 비지니스 서비스 호출
 		model.addAttribute("itemName", itemName);
+		model.addAttribute("itemPrice", itemPrice);
 		
 		return "menu/success_add_menu";
 	}

@@ -56,7 +56,6 @@ public class CartController {
 	public String addCartItem(CartItem cartItem, Model model) {
 		model.addAttribute("mainCategoryList", cateservice.findAllMainCategory());
 		model.addAttribute("subCategoryList", cateservice.findAllSubCategory());
-		model.addAttribute("sumPrice", cservice.sumPriceByCartItem());
 		
 		//상품명으로 cart를 뒤져서 만약 같은 이름의 상품 있으면 개수를 추가하는걸로
 		// cart에서 이름과 같은 카트아이템이 있는지 찾는 dao
@@ -73,6 +72,7 @@ public class CartController {
 		System.out.println("카트리스트 : " + cservice.findCartList());
 		model.addAttribute("cartList", cservice.findCartList());
 		model.addAttribute("menuList", menuService.findAllMenu());
+		model.addAttribute("sumPrice", cservice.sumPriceByCartItem());
 		return "/purchase/menu";
 	}
 	
@@ -85,8 +85,7 @@ public class CartController {
 		model.addAttribute("sumPrice", cservice.sumPriceByCartItem());
 		
 		cservice.updateCartItem(cartItem);
-		
-		
+
 		//리스트를 다시 불러와서 model로보내고 뿌리기
 		model.addAttribute("cartList", cservice.findCartList());
 		
@@ -106,7 +105,6 @@ public class CartController {
 		return "/purchase/menu";
 	}
 	
-	// 장바구니 비우기는 결제완료 단계에서 사용
 	
 	// 결제하기 -> 총 매출액 등록, 재고 차감
 	@GetMapping("cafe/purchase")
@@ -119,14 +117,28 @@ public class CartController {
 			System.out.println(c);
 			// sale테이블에 추가하기
 			sservice.addSale(c);
-			
 		}
 		
-		// cartList비우기
+		//cartList를 보내고나서 cartList비우기
+		model.addAttribute("cartList", cservice.findCartList());
 		cservice.emptyCart();
 		
 		return "/purchase/success_purchase";
 		
+	}
+	
+	//장바구니 비우기
+	@GetMapping("cafe/delete_cart")
+	public String deleteCart(Model model) {
+		model.addAttribute("mainCategoryList", cateservice.findAllMainCategory());
+		model.addAttribute("subCategoryList", cateservice.findAllSubCategory());
+		model.addAttribute("sumPrice", cservice.sumPriceByCartItem());
+		model.addAttribute("menuList", menuService.findAllMenu());
+		
+		// cartList삭제하고 보내기
+		cservice.emptyCart();
+		model.addAttribute("cartList", cservice.findCartList());
+		return "/purchase/menu";
 	}
 	
 	

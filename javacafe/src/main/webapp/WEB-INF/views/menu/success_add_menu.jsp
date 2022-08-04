@@ -11,7 +11,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<label>메뉴 이름</label>: ${menuItem.itemName}<br>
-<label>메뉴 가격</label>: ${menuItem.itemPrice}<br>
+<script type="text/javascript">
+	
+	alert("메뉴 이름 : ${itemName} \n메뉴 가격 : ${itemPrice}원");
+	document.location.href="add_menu";
+
+</script>
 </body>
 </html>
