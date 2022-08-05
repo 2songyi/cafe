@@ -44,7 +44,7 @@ public class CategoryController {
 	
 	// 서브 카테고리 등록
 	@PostMapping("cafe/add_sub_category")
-	public String addSubCategory(@RequestParam long mainCategory, @RequestParam String subCategory,
+	public String addSubCategory(@RequestParam String mainCategory, @RequestParam String subCategory,
 			Model model) {
 		
 		System.out.println(mainCategory);

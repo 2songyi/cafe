@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <title>cafe</title>
 <link rel="stylesheet" href="../resources/css/purchase/initial.min.css">
-<link rel="stylesheet" href="../resources/css/manager/add_menu.css">
+<link rel="stylesheet" href="../resources/css/manager/sale.css">
 </head>
 <body>
 
@@ -41,16 +41,7 @@
     <main>
       <div id="container">
         <!-- 왼쪽 메뉴 영역 -->
-        <section id="snb">
-          <nav class="nav">
-            <ul class="left-menu">
-              <li><a href="#">카테고리등록</a></li>
-              <li><a href="#">상품등록</a></li>
-              <li><a href="#">상품조회</a></li>
-              <li><a href="#">매출관리</a></li>
-            </ul>
-          </nav>
-        </section>
+        <%@ include file="../incl/side_menu.jsp"%>
         <!-- content영역 -->
 		<div id="content">
 			<div class="content-info">
@@ -129,8 +120,7 @@
 								<th class="t4">상품명</th>
 								<th class="t5">가격</th>
 								<th class="t6">수량</th>
-								<th class="t7">총 가격</th>
-								<th class="t8">날짜</th>
+								<th class="t7">날짜</th>
 							</tr>
 						</thead>
 					</table>
@@ -146,6 +136,7 @@
 									<td class="t4">${fn:split(salelist, ',')[4]}</td>
 									<td class="t5">${fn:split(salelist, ',')[5]}</td>
 									<td class="t6">${fn:split(salelist, ',')[6]}</td>
+									<td class="t7">${fn:split(salelist, ',')[7]}</td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -159,11 +150,7 @@
     </main>
 
     <!-- footer -->
-    <footer>
-      <div class="inner">
-        <span class="copyright">Copyright &copy;LeeSongYi</span>
-      </div>
-    </footer>
+    <%@ include file="../incl/footer.jsp"%>
 
 </body>
 </html>

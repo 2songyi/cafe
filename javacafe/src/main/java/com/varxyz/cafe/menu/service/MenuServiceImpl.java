@@ -3,7 +3,7 @@ package com.varxyz.cafe.menu.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.varxyz.cafe.menu.command.MenuListCommand;
 import com.varxyz.cafe.menu.domain.MenuCategory;
@@ -11,7 +11,7 @@ import com.varxyz.cafe.menu.domain.MenuItem;
 import com.varxyz.cafe.menu.domain.SubCategory;
 import com.varxyz.cafe.menu.repository.MenuSpringJdbcImpl;
 
-@Component
+@Service
 public class MenuServiceImpl {
 	
 	@Autowired
@@ -39,6 +39,12 @@ public class MenuServiceImpl {
 	public List<MenuListCommand> findMenuListByCategory(String mainCategory, String subCategory) {
 		return dao.findMenuListByCategory(mainCategory, subCategory);
 	}
+	
+	// 메인카테고리로 메뉴 조회
+	public List<MenuListCommand> findMenuListByMain(String mainCategory) {
+		return dao.findMenuListByMain(mainCategory);
+	}
+	
 	// 전체 메뉴 조회
 	public List<MenuListCommand> findAllMenu() {
 		return dao.findAllMenu();

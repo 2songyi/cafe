@@ -11,6 +11,9 @@
 <title>cafe</title>
 <link rel="stylesheet" href="../resources/css/purchase/initial.min.css">
 <link rel="stylesheet" href="../resources/css/purchase/purchase_menu.css">
+<script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="../resources/js/common.js"></script>
+
 </head>
 <body>
   <div class="wrap">
@@ -24,29 +27,39 @@
           <nav class="l-nav">
             <div class="category">
               <ul class="l-menu">
-              	  <li><a href="#">전체보기</a></li>
-                <c:forEach var="mainCategoryList" items="${mainCategoryList}">
-                  <li><a href="#">${fn:split(mainCategoryList, ',')[1]}</a></li>
-                </c:forEach>
+              	  <li class="mainc main-all on"><a href="#">전체보기</a></li>
+               	  <c:forEach var="mainCategoryList" items="${mainCategoryList}">
+                  	<li class="mainc"><a href="#">${fn:split(mainCategoryList, ',')[1]}</a></li>
+               	  </c:forEach>
               </ul>
             </div>
-
 
           </nav>
         </section>
         <div id="content">
+        <header>
           <div class="sub-category">
-          <li><a href="#">전체보기</a></li>
-          <!-- 대분류에 해당하는 서브타이틀만 뜨게, 전체보기 눌렀을때는 안보이게 -->
+           <ul>
+             <li>
+               <!-- <div class="subc sub-all">
+                 <p><a href="#">전체보기</a></p>
+               </div> -->
+             </li>
             <c:forEach var="subCategoryList" items="${subCategoryList}">
-                  <li><a href="#">${fn:split(subCategoryList, ',')[2]}</a></li>
-                </c:forEach>
+               <li>
+                 <div class="subc ${fn:split(subCategoryList, ',')[1]}">
+                  <p><a href="#">${fn:split(subCategoryList, ',')[2]}</a></p>
+                 </div>
+               </li>
+            </c:forEach>
+           </ul>
           </div>
+        </header>   
           <!-- 메뉴아이템 영역 -->
           <div class="menu">
             <div class="product-container">
            	 <c:forEach var="menuList" items="${menuList}">
-              <div class="product">
+              <div class="product ${fn:split(menuList, ',')[0]} ${fn:split(menuList, ',')[1]}">
           	   <form action="add_cart_item" method="post">
                 <div class="product-img"><img src="../menu_img/${fn:split(menuList, ',')[5]}" alt="menu_item"></div>
                 <div class="product-title">${fn:split(menuList, ',')[3]}</div>
@@ -58,7 +71,6 @@
 				<input type="hidden" name="itemCode" value="${fn:split(menuList, ',')[2]}"/>
 				<input type="hidden" name="itemName" value="${fn:split(menuList, ',')[3]}"/>
 				<input type="hidden" name="itemprice" value="${fn:split(menuList, ',')[4]}"/>
-				
          	   </form>
               </div>
           	 </c:forEach>

@@ -9,7 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class SubCategoryCommand {
 	private long subId;
-	private long mainId;
+	private String mainCategory;
 	private String subCategory;
 	
 	public SubCategoryCommand() {
@@ -18,7 +18,7 @@ public class SubCategoryCommand {
 
 	@Override
 	public String toString() {
-		return subId + "," + mainId + "," + subCategory;
+		return subId + "," + mainCategory + "," + subCategory;
 	}
 	
 	

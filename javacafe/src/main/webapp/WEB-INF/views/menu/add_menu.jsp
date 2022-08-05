@@ -11,7 +11,21 @@
 <title>cafe</title>
 <link rel="stylesheet" href="../resources/css/purchase/initial.min.css">
 <link rel="stylesheet" href="../resources/css/manager/add_menu.css">
+<script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="../resources/js/select.js"></script>
+
 </head>
+<style>
+.subselect  {
+  display: none;
+}
+
+.subselect.show {
+  display: block;
+}
+
+</style>
+
 <body>
 
   <div class="wrap">
@@ -41,16 +55,7 @@
     <main>
       <div id="container">
         <!-- 왼쪽 메뉴 영역 -->
-        <section id="snb">
-          <nav class="nav">
-            <ul class="left-menu">
-              <li><a href="#">카테고리등록</a></li>
-              <li><a href="#">상품등록</a></li>
-              <li><a href="#">상품조회</a></li>
-              <li><a href="#">매출관리</a></li>
-            </ul>
-          </nav>
-        </section>
+        <%@ include file="../incl/side_menu.jsp"%>
         <!-- content영역 -->
         <div id="content">
           <div class="content-info">
@@ -63,14 +68,16 @@
                   <tr>
                     <th>카테고리</th>
                     <td>
-                      	<select name="mainCategory">
+                      	<select name="mainCategory" class="mainselect">
 							<c:forEach var="mainCategoryList" items="${mainCategoryList}">
    	    						<option value="${fn:split(mainCategoryList, ',')[1]}">${fn:split(mainCategoryList, ',')[1]}</option>
 							</c:forEach>
 						</select>
 						<select name="subCategory">
 							<c:forEach var="subCategoryList" items="${subCategoryList}">
-   	   						 	<option value="${fn:split(subCategoryList, ',')[2]}">${fn:split(subCategoryList, ',')[2]}</option>
+   	   						 	<option value="${fn:split(subCategoryList, ',')[2]}"
+   	   						 		class="subselect show ${fn:split(subCategoryList, ',')[1]}">
+   	   						 	${fn:split(subCategoryList, ',')[2]}</option>
 							</c:forEach>
 						</select>
                     </td>
@@ -107,11 +114,7 @@
     </main>
 
     <!-- footer -->
-    <footer>
-      <div class="inner">
-        <span class="copyright">Copyright &copy;TeamBravo</span>
-      </div>
-    </footer>
+    <%@ include file="../incl/footer.jsp"%>
 
   </div>
 

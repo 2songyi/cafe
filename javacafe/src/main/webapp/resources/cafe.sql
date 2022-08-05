@@ -11,9 +11,9 @@ DROP TABLE MainCategory;
 
 
 CREATE TABLE subCategory(
-	subId 		BIGINT 			PRIMARY KEY AUTO_INCREMENT,
-	mainId		BIGINT			NOT NULL,
-	subCategory VARCHAR(20) 	NOT NULL
+	subId 		 BIGINT 		PRIMARY KEY AUTO_INCREMENT,
+	mainCategory VARCHAR(20)	NOT NULL,
+	subCategory  VARCHAR(20) 	NOT NULL
 )AUTO_INCREMENT = 1;
 -- mainId forignkey
 

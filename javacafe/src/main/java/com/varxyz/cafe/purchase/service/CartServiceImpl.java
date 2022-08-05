@@ -4,16 +4,21 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import com.varxyz.cafe.menu.repository.MenuSpringJdbcImpl;
 import com.varxyz.cafe.purchase.command.CartItemCommand;
 import com.varxyz.cafe.purchase.domain.CartItem;
 import com.varxyz.cafe.purchase.repository.CartSpringJdbcImpl;
 
-@Component
+@Service
 public class CartServiceImpl {
 	
 	@Autowired
 	private CartSpringJdbcImpl dao;
+	
+	@Autowired
+	private MenuSpringJdbcImpl mdao;
 	
 	// 장바구니에 상품 담기
 	public void addCartItem(CartItem cartItem) {
@@ -23,11 +28,20 @@ public class CartServiceImpl {
 	// 장바구니 아이템 수정
 	public void updateCartItem(CartItem cartItem) {
 		
-		long itemPrice = cartItem.getItemprice();
-		int count = cartItem.getCount();
 		String itemName = cartItem.getItemName();
+		int count = cartItem.getCount();
+		long itemPrice = findPrice(itemName);
+		long price = itemPrice * count;
+		// 원래가격 * count  = price
 	
-		dao.updateCartItem(itemPrice, count, itemName);
+		dao.updateCartItem(price, count, itemName);
+	}
+	
+	// 상품가격 확인
+	public long findPrice(String itemName) {
+		// 상품관리하는 dao에서 만들기
+		return mdao.findPrice(itemName);
+		
 	}
 	
 	// 장바구니 리스트 가져오기

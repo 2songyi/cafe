@@ -214,14 +214,41 @@ table {
 
 
 /* 상단 서브 카테고리 */
-.sub-category {
-  height: 70px;
+header {
+  width: 100%;
+  height: 60px;
+}
+header .sub-category {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
   background: #555f80;
+  float: left;
 }
 
-#content .menu {
-  height: calc(100% - 70px);
-  overflow-x: auto;
+.sub-category ul li {
+  margin-right: 5px;
+  float: left;
+}
+
+.sub-category ul li .subc {
+  display: inline-block;
+  height: 30px;
+  width: 100px;
+  background: #dfe1eb;
+  border-radius: 15px;
+}
+
+.sub-category ul li:nth-child(1) {
+  margin-left: 10px;
+}
+
+.sub-category ul li p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 30px;
 }
 
 /* 메뉴 아이템 영역 */
@@ -229,6 +256,12 @@ table {
   width: 100%;
   background: #fcfaf7;
 }
+
+#content .menu {
+  height: calc(100% - 60px);
+  overflow-x: auto;
+}
+
 
 .product-container {
   display: flex;
@@ -274,5 +307,21 @@ table {
 .product-btn button:hover {
   background: grey;
   color: #fff;
+}
+
+/* 메뉴아이템 jquery */
+.product {
+  display: none;
+}
+.product.on {
+  display: block;
+}
+
+.sub-category ul li .subc {
+  display: none;
+}
+
+.sub-category ul li .subc.on {
+  display: block;
 }
 

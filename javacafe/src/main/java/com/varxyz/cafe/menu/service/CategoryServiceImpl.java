@@ -4,12 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.varxyz.cafe.menu.command.MainCategoryCommand;
 import com.varxyz.cafe.menu.command.SubCategoryCommand;
 import com.varxyz.cafe.menu.repository.CategorySpringJdbcImpl;
 
-@Component
+@Service
 public class CategoryServiceImpl {
 	
 	@Autowired
@@ -24,8 +25,8 @@ public class CategoryServiceImpl {
 	}
 
 	// 카테고리 소분류 등록
-	public void addSubCategory(long mainId, String category) {
-		dao.addSubCategory(mainId, category);
+	public void addSubCategory(String mcategory, String scategory) {
+		dao.addSubCategory(mcategory, scategory);
 		
 	}
 	

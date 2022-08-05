@@ -4,12 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.varxyz.cafe.purchase.command.CartItemCommand;
 import com.varxyz.cafe.sale.domain.Sale;
 import com.varxyz.cafe.sale.respository.SaleSpringJdbcImpl;
 
-@Component
+@Service
 public class SaleServiceImpl {
 	
 	@Autowired
@@ -31,7 +32,9 @@ public class SaleServiceImpl {
 	}
 	
 	// 메인카테고리로 조회
-//	public List<Sale> 
+	public List<Sale> findSaleByMainCate(String mainCategory) {
+		return dao.findSaleByMainCate(mainCategory);
+	}
 	
 	// 년도 조회
 	public List<Sale> findSaleYear(String year) {

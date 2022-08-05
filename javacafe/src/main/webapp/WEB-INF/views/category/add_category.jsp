@@ -41,16 +41,7 @@
     <main>
       <div id="container">
         <!-- 왼쪽 메뉴 영역 -->
-        <section id="snb">
-          <nav class="nav">
-            <ul class="left-menu">
-              <li><a href="#">카테고리등록</a></li>
-              <li><a href="#">상품등록</a></li>
-              <li><a href="#">상품조회</a></li>
-              <li><a href="#">매출관리</a></li>
-            </ul>
-          </nav>
-        </section>
+        <%@ include file="../incl/side_menu.jsp"%>
         <!-- content영역 -->
         <div id="content">
           <div class="content-info">
@@ -77,7 +68,7 @@
                       <form action="add_sub_category" method="post">
                       	<select name="mainCategory">
 							<c:forEach var="mainCategoryList" items="${mainCategoryList}">
-   	    					<option value="${fn:split(mainCategoryList, ',')[0]}">${fn:split(mainCategoryList, ',')[1]}</option>
+   	    					<option value="${fn:split(mainCategoryList, ',')[1]}">${fn:split(mainCategoryList, ',')[1]}</option>
 							</c:forEach>
 						</select>
 						<input type="text" name="subCategory"/>
@@ -98,11 +89,7 @@
     </main>
 
     <!-- footer -->
-    <footer>
-      <div class="inner">
-        <span class="copyright">Copyright &copy;TeamBravo</span>
-      </div>
-    </footer>
+    <%@ include file="../incl/footer.jsp"%>
 
 </body>
 </html>

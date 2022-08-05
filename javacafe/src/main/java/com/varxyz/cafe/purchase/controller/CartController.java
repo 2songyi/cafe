@@ -76,19 +76,19 @@ public class CartController {
 		return "/purchase/menu";
 	}
 	
-	
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 	// 장바구니 수정
 	@PostMapping("cafe/update_cart_item")
 	public String updateCartItem(CartItem cartItem, Model model) {
 		model.addAttribute("mainCategoryList", cateservice.findAllMainCategory());
 		model.addAttribute("subCategoryList", cateservice.findAllSubCategory());
-		model.addAttribute("sumPrice", cservice.sumPriceByCartItem());
 		
 		cservice.updateCartItem(cartItem);
 
 		//리스트를 다시 불러와서 model로보내고 뿌리기
 		model.addAttribute("cartList", cservice.findCartList());
-		
+		model.addAttribute("sumPrice", cservice.sumPriceByCartItem());
+		model.addAttribute("menuList", menuService.findAllMenu());
 		return "/purchase/menu";
 	}
 	
@@ -102,6 +102,7 @@ public class CartController {
 		cservice.deleteCartItem(cartItem.getItemName());
 		
 		model.addAttribute("cartList", cservice.findCartList());
+		model.addAttribute("menuList", menuService.findAllMenu());
 		return "/purchase/menu";
 	}
 	

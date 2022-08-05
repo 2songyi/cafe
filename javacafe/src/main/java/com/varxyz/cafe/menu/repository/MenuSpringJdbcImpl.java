@@ -43,12 +43,27 @@ public class MenuSpringJdbcImpl {
 	//카테고리별 상품 조회(대분류 소분류)
 	public List<MenuListCommand> findMenuListByCategory(String mainCategory, String subCategory) {
 		String sql = "SELECT * FROM MenuItem WHERE mainCategory = ? AND subCategory = ?";
-		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<MenuListCommand>(MenuListCommand.class));
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<MenuListCommand>(MenuListCommand.class),
+				mainCategory, subCategory);
 	}
 	
+	// 메인카테고리로만 상품 조회
+	public List<MenuListCommand> findMenuListByMain(String mainCategory) {
+		String sql = "SELECT * FROM MenuItem WHERE mainCategory = ?";
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<MenuListCommand>(MenuListCommand.class),
+				mainCategory);
+	}
+	
+	// 전체 상품 조회
 	public List<MenuListCommand> findAllMenu() {
 		String sql = "SELECT * FROM MenuItem";
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<MenuListCommand>(MenuListCommand.class));
+	}
+	
+	// 상품이름으로 상품가격 조회
+	public long findPrice(String itemName) {
+		String sql = "SELECT itemPrice FROM MenuItem WHERE itemName = ?";
+		return jdbcTemplate.queryForObject(sql, Long.class, itemName);
 	}
 
 	public void updateMenu() {

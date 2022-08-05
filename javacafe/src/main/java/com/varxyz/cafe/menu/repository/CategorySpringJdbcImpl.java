@@ -31,10 +31,10 @@ private JdbcTemplate jdbcTemplate;
 	}
 	
 	// 소분류 카테고리 등록
-	public void addSubCategory(long mainId, String category) {
-		String sql = "INSERT INTO SubCategory(mainId, subCategory) VALUES(?, ?)";
+	public void addSubCategory(String mcategory, String category) {
+		String sql = "INSERT INTO SubCategory(mainCategory, subCategory) VALUES(?, ?)";
 		
-		jdbcTemplate.update(sql, mainId, category);
+		jdbcTemplate.update(sql, mcategory, category);
 		System.out.println("소분류 카테고리 등록");
 	}
 
