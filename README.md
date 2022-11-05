@@ -26,7 +26,8 @@
 
 ### 2.2 클래스 다이어그램
 - 도메인 클래스만 간단하게 나타낸 다이어그램입니다.
-![카페다이어그램](https://user-images.githubusercontent.com/90902468/189828516-99930e5f-2f7e-4df7-973c-e0a7768245cc.png)
+![songcafe_class](https://user-images.githubusercontent.com/90902468/200118677-b7af8ca4-14e3-457f-b0dc-29cc66f4d788.svg)
+
 ### 2.3 개발도구
 > - JAVA
 > - Spring
